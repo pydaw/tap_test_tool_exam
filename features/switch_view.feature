@@ -14,7 +14,6 @@
             | Lägg till bok |
             | Mina böcker   |
 
-
     Scenario Outline: Kontrollera att knapp blir inaktiverad
     
         Given användaren befinner sig på landningssidan
