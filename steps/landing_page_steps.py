@@ -26,4 +26,4 @@ def step_impl(context):
 @then(u'menyvalet "Katalog" visas')
 def step_impl(context):
     landing_page = LandingPage(context.page)
-    assert landing_page.is_catalog_button_chosen()
+    assert landing_page.is_catalog_button_disabled()

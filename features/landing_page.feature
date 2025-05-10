@@ -2,6 +2,7 @@ Feature: Landningssida
 
     Som en användare, vill jag får feedback att jag kommit till "Läslistan", så att vet att jag kommit till rätt sida.
 
+    @smoke
     Scenario: Användare besöker sidan
         Given användaren befinner sig på landningssidan
         Then sidan visas med titeln "Läslistan"
