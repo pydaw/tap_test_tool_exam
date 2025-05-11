@@ -1,4 +1,3 @@
-import time
 import random
 
 from behave import given, when, then

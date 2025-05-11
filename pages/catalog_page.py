@@ -2,6 +2,7 @@ import re
 from pages.base_page import BasePage
 
 class CatalogPage(BasePage):
+    """ A class that includes abstraction of 'catalog' view, inherent common features from class BasePage  """
     def __init__(self, page):
         super().__init__(page)
 
@@ -9,11 +10,11 @@ class CatalogPage(BasePage):
         self.book_list = self.catalog_div.locator("div.book")
 
 
-    def is_catalog_view_visible(self):
+    def is_catalog_view_visible(self) -> bool:
         return self.catalog_div.is_visible()
 
 
-    def is_book_in_list(self, title, author):
+    def is_book_in_list(self, title: str, author: str)  -> bool:
         new_book_locator = self.catalog_div.locator(
             "div.book",
             has_text=re.compile(rf"{title}.*{author}")
@@ -21,11 +22,11 @@ class CatalogPage(BasePage):
         return new_book_locator.count() > 0
     
 
-    def get_book_list_length(self):
+    def get_book_list_length(self) -> int:
         return self.book_list.count()
 
 
-    def get_book(self, index: int):
+    def get_book(self, index: int) -> dict:
         book_locator = self.book_list.nth(index)
         text = book_locator.text_content().strip().strip(('"❤️"')).replace('"','')
         
@@ -55,6 +56,6 @@ class CatalogPage(BasePage):
         self.book_list.nth(index).get_by_role("button").click()
 
 
-    def number_of_books_marked_as_favorite(self):
+    def number_of_books_marked_as_favorite(self) -> int:
         return self.book_list.locator("div.star.selected").count()
     

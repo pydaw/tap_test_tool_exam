@@ -11,6 +11,7 @@ Feature: Lägg till bok
         Examples: 
             | title   | author        |
             | Test123 | Test Testsson |
+            | -       | -             |
                 
 
     Scenario: Kontrollera att det inte går att lägga till bok utan titel

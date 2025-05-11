@@ -2,6 +2,9 @@ from playwright.sync_api import Page
 BASE_URL = "https://tap-ht24-testverktyg.github.io/exam-template/"
 
 class BasePage:
+    """ A class that includes abstraction of common functionality of
+    url: https://tap-ht24-testverktyg.github.io/exam-template/ """
+
     def __init__(self, page: Page):
         self.page = page
 
@@ -13,36 +16,42 @@ class BasePage:
         self.my_books_button = page.get_by_test_id("favorites")
 
 
-    def navigate(self, url=BASE_URL):
+    def navigate(self, url: str=BASE_URL) -> None:
         self.page.goto(url)
 
-    def get_title(self):
+
+    def get_title(self) -> str:
         return self.page_title
 
-    def is_heading_visible(self):
+
+    def is_heading_visible(self) -> bool:
         return self.main_heading.is_visible()
 
-    def is_image_visible(self):
+
+    def is_image_visible(self) -> bool:
         return self.main_image.is_visible()
 
     
     def click_catalog_button(self):
         self.catalog_button.click()
-    
-    def is_catalog_button_disabled(self):
+
+
+    def is_catalog_button_disabled(self) -> bool:
         return self.catalog_button.is_disabled()
     
     
     def click_add_book_button(self):
         self.add_book_button.click()
-    
-    def is_add_book_button_disabled(self):
+
+
+    def is_add_book_button_disabled(self) -> bool:
         return self.add_book_button.is_disabled()
     
 
     def click_my_books_button(self):
         self.my_books_button.click()
-    
-    def is_my_books_button_disabled(self):
+
+
+    def is_my_books_button_disabled(self) -> bool:
         return self.my_books_button.is_disabled()
     
