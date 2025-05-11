@@ -11,7 +11,7 @@ def before_all(context):
 def before_scenario(context, scenario):
     """This function will called before running scenario"""
     context.page = context.browser.new_page()
-    context.page.set_default_timeout(1000)
+    context.page.set_default_timeout(3000)
 
 
 def after_scenario(context, scenario):

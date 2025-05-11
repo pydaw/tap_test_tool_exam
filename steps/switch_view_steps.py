@@ -10,7 +10,10 @@ from pages.my_books_page import MyBooksPage
 @when(u'trycker på "{menu_button}"')
 def step_impl(context, menu_button):
     base_page = BasePage(context.page)
+
+    # Click on chosen menu button
     if menu_button == "Katalog":
+        # Need to select other view, due to catalog-button is default disabled
         base_page.click_add_book_button()
         base_page.click_catalog_button()
     elif menu_button == "Lägg till bok":
@@ -26,6 +29,8 @@ def step_impl(context, menu_button):
     catalog_page = CatalogPage(context.page)
     add_book_page = AddBookPage(context.page)
     my_books_page = MyBooksPage(context.page)
+
+    # Check if correct view is presented
     if menu_button == "Katalog":
         assert catalog_page.is_catalog_view_visible()
     elif menu_button == "Lägg till bok":
@@ -39,6 +44,8 @@ def step_impl(context, menu_button):
 @then(u'ska "{menu_button}" bli inaktiverad')
 def step_impl(context, menu_button):
     base_page = BasePage(context.page)
+
+    # Check if menu buttons is disabled or enabled in selected view 
     if menu_button == "Katalog":
         assert base_page.is_catalog_button_disabled()
         assert not base_page.is_add_book_button_disabled()
