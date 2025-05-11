@@ -44,7 +44,7 @@ Funktionerna delas in och anges vad som skall testas och kontrolleras.
 ## User stories
 Summering av [User Stories](STORIES.md)
 
-Usert stories återfinns även i features filerna:  
+User stories återfinns även i gherkin features-filerna:  
 [landing_page.feature](features/landing_page.feature)  
 [switch_view.feature](features/switch_view.feature)  
 [book_catalog.feature](features/book_catalog.feature)  
