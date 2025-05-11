@@ -1,4 +1,5 @@
-# Readme
+# README
+Author: Daniel Wärnelöv
 
 ## Sidstruktur
 Landing page:
