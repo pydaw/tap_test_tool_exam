@@ -36,14 +36,36 @@ def step_impl(context):
         for index in sample_of_book_index:
             catalog_page.mark_book_as_favorite(index)
             favorite_books_list.append(catalog_page.get_book(index))
-        context.favorite_books_list = favorite_books_list
         
+        # Save lists to context
+        context.favorite_books_list = favorite_books_list
+        context.favorite_books_list_index = sample_of_book_index
+
         # Check number of favorites marks is 3
         assert catalog_page.number_of_books_marked_as_favorite() == 3
 
     else:
         raise Exception("Not enough books in catalog list")
     
+
+@when(u'användaren avmarkerar de "3" böckerna i vy "Katalog"')
+def step_impl(context):
+    # Navigate to "Katalog" view, use button to save state on site
+    catalog_page = CatalogPage(context.page)
+    
+    # Check if books is saved in list
+    number_of_favorite_books = len(context.favorite_books_list)
+    assert number_of_favorite_books > 0
+
+    # Unmark the 3 saved favorite books
+    if number_of_favorite_books >= 3:
+        favorite_books_list_index = context.favorite_books_list_index
+        for index in favorite_books_list_index:
+            catalog_page.unmark_book_as_favorite(index)
+
+    else:
+        raise Exception("Not enough books that are marked as favorite")
+
 
 @when(u'anvädaren har markerat "0" böcker i vy "Katalog"')
 def step_impl(context):

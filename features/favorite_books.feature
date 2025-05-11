@@ -13,3 +13,10 @@ Feature: Mina favorit böcker
         And inga favoritböcker i listan
         When anvädaren har markerat "0" böcker i vy "Katalog"
         Then ska vy "Mina böcker" visa text: "När du valt, kommer dina favoritböcker att visas här."
+
+    Scenario: Användaren ångar favorit markeringen
+        Given användaren befinner sig på vy "Mina böcker"
+        When anvädaren markerar "3" böcker i vy "Katalog"
+        And användaren avmarkerar de "3" böckerna i vy "Katalog"
+        Then ska vy "Mina böcker" visa text: "När du valt, kommer dina favoritböcker att visas här."
+

@@ -38,6 +38,20 @@ class CatalogPage(BasePage):
 
     
     def mark_book_as_favorite(self, index: int):
+        if self.book_list.nth(index).locator("div.star").is_visible():
+            self.book_list.nth(index).get_by_role("button").click()
+        else:
+            raise Exception("Book cannot be marked as a favorite, already marked?")
+
+
+    def unmark_book_as_favorite(self, index: int):
+        if self.book_list.nth(index).locator("div.star.selected").is_visible():
+            self.book_list.nth(index).get_by_role("button").click()
+        else:
+            raise Exception("Book cannot be unmarked as a favorite, already unmarked?")
+
+
+    def click_favorite_button(self, index: int):
         self.book_list.nth(index).get_by_role("button").click()
 
 
