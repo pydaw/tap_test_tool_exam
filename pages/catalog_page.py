@@ -10,6 +10,10 @@ class CatalogPage(BasePage):
         self.book_list = self.catalog_div.locator("div.book")
 
 
+    def navigate(self):
+        super().navigate()
+
+
     def is_catalog_view_visible(self) -> bool:
         return self.catalog_div.is_visible()
 
