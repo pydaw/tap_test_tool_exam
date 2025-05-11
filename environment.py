@@ -10,7 +10,7 @@ def before_all(context):
 
 def before_scenario(context, scenario):
     context.page = context.browser.new_page()
-    context.base_url = BASE_URL
+    # context.base_url = BASE_URL
     context.page.set_default_timeout(1000)
 
 def after_scenario(context, scenario):

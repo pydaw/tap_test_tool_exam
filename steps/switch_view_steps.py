@@ -39,7 +39,6 @@ def step_impl(context, menu_button):
 @then(u'ska "{menu_button}" bli inaktiverad')
 def step_impl(context, menu_button):
     base_page = BasePage(context.page)
-    print(f"menu_button: {menu_button}")
     if menu_button == "Katalog":
         assert base_page.is_catalog_button_disabled()
         assert not base_page.is_add_book_button_disabled()

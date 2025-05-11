@@ -1,8 +1,8 @@
 from behave import given, when, then
 from playwright.sync_api import Page
 
-from pages.catalog_page import CatalogPage
 from pages.add_book_page import AddBookPage
+from pages.catalog_page import CatalogPage
 
 
 @given(u'anvädaren är på vy "Lägga till bok"')
@@ -54,7 +54,7 @@ def step_impl(context):
 def step_impl(context):
     catalog_page = CatalogPage(context.page)
     catalog_page.click_catalog_button()
-    assert catalog_page.is_book_in_catalog(context.new_book_title, context.new_book_author)
+    assert catalog_page.is_book_in_list(context.new_book_title, context.new_book_author)
 
 
 @then(u'kan ej spara bok i katalog')
