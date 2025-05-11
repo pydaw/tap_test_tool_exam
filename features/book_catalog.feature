@@ -9,7 +9,6 @@ Feature: Lista alla böcker i en katalog
         And lägger till 2 böcker
         Then kataloglistan ökas med 2 böcker
 
-    @wip    
     Scenario: Klicka 4 gånger på en bok
         Given användaren befinner sig på landningssidan
         And inga böcker är valda som favoriter
